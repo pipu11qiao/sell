@@ -13,8 +13,39 @@ var port = process.env.PORT || config.dev.port
 // https://github.com/chimurai/http-proxy-middleware
 var proxyTable = config.dev.proxyTable
 
-var app = express()
-var compiler = webpack(webpackConfig)
+var app = express();
+
+var appData = require('../data.json'); // 数据源 json文件路径
+var seller = appData.seller; // 卖家数据
+var goods = appData.goods; // 商品数据
+var ratings = appData.ratings; // 评分数据
+
+var apiRoutes = express.Router(); // 路由对象
+
+// 定义路由
+// 卖家路由
+apiRoutes.get('/seller', function (req, res) {
+  res.json({
+    errno: 0, // 返回的状态码
+    data: seller
+  });
+});
+// 商品路由
+apiRoutes.get('/goods', function (req, res) {
+  res.json({
+    errno: 0, // 返回的状态码
+    data: goods
+  });
+});
+// 评分路由
+apiRoutes.get('/ratings', function (req, res) {
+  res.json({
+    errno: 0, // 返回的状态码
+    data: ratings
+  });
+});
+
+var compiler = webpack(webpackConfig);
 
 var devMiddleware = require('webpack-dev-middleware')(compiler, {
   publicPath: webpackConfig.output.publicPath,
