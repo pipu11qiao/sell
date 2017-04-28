@@ -27,5 +27,5 @@
 ##### index.html app入口文件
 #### package.json 项目配置文件
 ##### app说明文件
-
+#####  /* eslint-disable no-new */ 在 js 中用new来生成变量 不用变量结局
 	

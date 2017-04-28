@@ -16,6 +16,8 @@ apiRoutes.get('/seller', function (req, res) {
     data: seller
   });
 });
-	
+
+// 用express框架使用该路由
+ app.use('/api',apiRoutes);
 ~~~
 

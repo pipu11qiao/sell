@@ -44,6 +44,8 @@ apiRoutes.get('/ratings', function (req, res) {
     data: ratings
   });
 });
+// 用express框架使用该路由
+app.use('/api',apiRoutes);
 
 var compiler = webpack(webpackConfig);
 
