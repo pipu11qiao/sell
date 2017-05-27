@@ -1,5 +1,5 @@
-<template><div>This is
-		ratings
+<template>
+	<div class="split">
 	</div>
 </template>
 
